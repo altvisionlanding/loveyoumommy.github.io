@@ -1,0 +1,307 @@
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Bootstrap -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"> 
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+	<title>SHS Photography</title>
+    <link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<head>
+
+<body>
+<canvas id="canvas"></canvas>
+<div class="card">
+  <div class="page cover">
+      <div class="content">
+        <h2 style = "font-size: 5em; text-align: center; padding-top: 15%; font-family: 'selimaregular';">Happy <br>Mother's <br>Day!</h2>
+        <button style = "margin-top: 38%; border-radius: 10px; font-family: 'Cutive Mono', sans-serif; font-size: 1em;">
+         OPEN ME!
+        </button> 
+      </div>
+      
+  </div>
+  <div class="page inside">
+    <div class="content">
+      <img src = "https://thumbs.gfycat.com/LinearShadowyKakapo-small.gif">
+      <p class="b-text">Love you mommy!
+      - Preet</p>
+    </div>
+  </div>
+</div>
+
+<style>
+@import url(https://fonts.googleapis.com/css?family=Righteous);
+@import url(https://fonts.googleapis.com/css?family=Cutive+Mono);
+@font-face {
+    font-family: 'selimaregular';
+    src: url('selima_-webfont.woff2') format('woff2'),
+         url('selima_-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+  box-sizing: border-box;
+}
+html * {
+  box-sizing: inherit;
+}
+
+*:before, *:after {
+  content: " ";
+}
+
+body {
+  overflow: hidden;
+  background-color: #caff80;
+  -webkit-perspective: 1000px;
+          perspective: 1000px;
+  color: #fff;
+  font-family: 'Cutive Mono', sans-serif;
+  margin: 0;
+  text-align: center;
+}
+
+.card {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  margin-left: -175px;
+  width: 350px;
+  height: 470px;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  transition: all ease-in-out 1s;
+}
+.card .page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+}
+.card .cover {
+  z-index: 2;
+  -webkit-transform: rotateY(-20deg);
+          transform: rotateY(-20deg);
+  transition: -webkit-transform ease-in-out 1.4s;
+  transition: transform ease-in-out 1.4s;
+  transition: transform ease-in-out 1.4s, -webkit-transform ease-in-out 1.4s;
+  z-index: 5;
+}
+.card .cover .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #8bb0ff;
+  z-index: 3;
+}
+.card .cover:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform-origin: right bottom;
+          transform-origin: right bottom;
+  background-color: rgba(0, 0, 0, 0.3);
+  -webkit-transform: skew(-8deg) rotateX(-10deg);
+          transform: skew(-8deg) rotateX(-10deg);
+  z-index: -1;
+}
+.card .cover button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  cursor: pointer;
+  background: transparent;
+  border: 3px solid #fff;
+  color: #fff;
+  font-size: 15px;
+  padding: 0.5em 1.4em;
+}
+.card .cover button:focus {
+  outline: none;
+}
+.card .inside {
+  z-index: 1;
+  -webkit-transform: rotateY(-8deg);
+          transform: rotateY(-8deg);
+}
+.card .inside .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #8bb0ff;
+  z-index: 3;
+}
+.card .inside:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transform-origin: right bottom;
+          transform-origin: right bottom;
+  background-color: rgba(0, 0, 0, 0.3);
+  -webkit-transform: skew(-8deg) rotateX(-10deg);
+          transform: skew(-8deg) rotateX(-10deg);
+  z-index: -1;
+}
+.card.open {
+  margin-left: 0;
+}
+.card.open .cover {
+  -webkit-transform: rotateY(-175deg);
+          transform: rotateY(-175deg);
+}
+
+.t-text {
+  position: absolute;
+  top: 30px;
+  width: 100%;
+}
+
+.b-text {
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+}
+
+.hb {
+  margin-top: 150px;
+  background: radial-gradient(top, ellipse cover, #f85096 0%, #86dc18 25%, #267cf0 60%, #e73827 100%);
+  display: inline-block;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'Righteous', sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+  position: relative;
+}
+.hb::after, .hb::before {
+  content: attr(data-title);
+  text-shadow: 8px -8px 0px #8bb0ff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-animation: depth 6s -1s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+          animation: depth 6s -1s cubic-bezier(0.445, 0.05, 0.55, 0.95) infinite;
+}
+.hb::after {
+  background: radial-gradient(top, ellipse cover, #f86464 0%, #0affc8 25%, #ee7cfa 60%, #faa61d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-transform: translate3d(0px, 16px, 0px) scale(0.9);
+          transform: translate3d(0px, 16px, 0px) scale(0.9);
+  z-index: -1;
+}
+.hb::before {
+  background: linear-gradient(top, #375db1 0%, #fdfb00 30%, #ef017c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-transform: translate3d(0px, 32px, 0px) scale(0.8);
+          transform: translate3d(0px, 32px, 0px) scale(0.8);
+  z-index: -2;
+}
+
+@-webkit-keyframes depth {
+  50% {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+            transform: translate3d(0px, 0px, 0px);
+  }
+}
+
+@keyframes depth {
+  50% {
+    -webkit-transform: translate3d(0px, 0px, 0px);
+            transform: translate3d(0px, 0px, 0px);
+  }
+}
+
+</style>
+
+<script>
+$(document).ready(function(){
+	
+  $('body').addClass('first');
+  $('.card').click(function(){
+		$(this).toggleClass('open');
+    if ($('body').hasClass('first')) {
+      setTimeout(init,10);
+    }
+    $('body').removeClass('first');
+	});
+  
+  function Brush(x,y,size,jitt,maxHeight,color,invert) {
+    this.x = x;
+    this.y = y;
+    this.height = 0;
+    this.size = size;
+    this.jitt = jitt;
+    this.maxHeight = maxHeight;
+    this.color = color;
+    this.invert = invert;
+}
+Brush.prototype.grow = function() {
+    if( this.height ++ > this.maxHeight ) {
+        return;
+    }
+    requestAnimationFrame(this.grow.bind(this));
+    var y = this.invert ? this.maxHeight - this.height : this.height;
+    context.beginPath();
+    context.moveTo(this.x - this.size/2, y);
+    context.lineTo(this.x + this.size/2, y);
+    context.strokeStyle = this.color;
+    context.stroke();
+    context.closePath();
+    this.x += Math.random() * this.jitt - (this.jitt / 2);
+}
+function itterate() {
+    for( var i = 0; i < 16; i++ ) {
+        if( count >= limit ) return;
+
+        var x = Math.random() * width,
+            y = height,
+            size = Math.random() * 15 + 15,
+            jitt = Math.random() + 0.6,
+            maxHeight = height;
+        new Brush(x,y,size,jitt,maxHeight,color(count++),Math.random()>0.5).grow();
+    }
+    setTimeout(itterate, Math.random() * 300);
+}
+function color(i) {
+    var r = Math.floor( Math.sin(i) * 127 + 128 );
+    var g = Math.floor( Math.sin(i + 2) * 127 + 128 );
+    var b = Math.floor( Math.sin(i + 3) * 127 + 128 );
+    return 'rgb(' + r + ', ' + g + ',' + b + ')';
+}
+function init() {
+    canvas = document.getElementById('canvas');
+    context = canvas.getContext('2d');
+    height = canvas.height = $(document).height();
+    width = canvas.width = $(document).width();
+    count = 0;
+    limit = 1024;
+    context.globalAlpha = 0.88;
+    itterate();
+}
+var canvas,context,height,width,count,limit;
+
+});
+</script>
+</body>
